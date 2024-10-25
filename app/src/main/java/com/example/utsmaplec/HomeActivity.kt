@@ -1,52 +1,42 @@
 package com.example.utsmaplec
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 
-class MainActivity : AppCompatActivity() {
+class HomeActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_home)
 
-        // Set up the bottom navigation
-        val bottomNav = findViewById<BottomNavigationView>(R.id.bottom_navigation)
-        bottomNav.setOnNavigationItemSelectedListener(navListener)
+        // Bottom Navigation View setup
+        val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottom_navigation)
 
-        // Load default fragment
-        if (savedInstanceState == null) {
-            supportFragmentManager.beginTransaction().replace(
-                R.id.nav_host_fragment,
-                HomeFragment()
-            ).commit()
+        bottomNavigationView.setOnNavigationItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.nav_home -> {
+                    // Mulai HomeActivity
+                    val intent = Intent(this, HomeActivity::class.java)
+                    startActivity(intent)
+                    true
+                }
+                R.id.nav_calendar -> {
+                    // Mulai HistoryActivity
+                    val intent = Intent(this, CalendarActivity::class.java)
+                    startActivity(intent)
+                    true
+                }
+                R.id.nav_profile -> {
+                    // Mulai ProfileActivity
+                    val intent = Intent(this, ProfileActivity::class.java)
+                    startActivity(intent)
+                    true
+                }
+                else -> false
+            }
         }
     }
-
-    private val navListener =
-        BottomNavigationView.OnNavigationItemSelectedListener { item: MenuItem ->
-            when (item.itemId) {
-                R.id.nav_home -> supportFragmentManager.beginTransaction().replace(
-                    R.id.nav_host_fragment,
-                    HomeFragment()
-                ).commit()
-
-                R.id.nav_calendar -> supportFragmentManager.beginTransaction().replace(
-                    R.id.nav_host_fragment,
-                    CalendarFragment()
-                ).commit()
-
-                R.id.nav_alarm -> supportFragmentManager.beginTransaction().replace(
-                    R.id.nav_host_fragment,
-                    AlarmFragment()
-                ).commit()
-
-                R.id.nav_profile -> supportFragmentManager.beginTransaction().replace(
-                    R.id.nav_host_fragment,
-                    ProfileFragment()
-                ).commit()
-            }
-            true
-        }
 }
