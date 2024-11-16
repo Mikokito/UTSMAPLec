@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "58720087310",
+    "firebase_url": "https://umn-story-farel-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "umn-story-farel",
+    "storage_bucket": "umn-story-farel.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:58720087310:android:3270be1ff5a5075009fb5f",
+        "android_client_info": {
+          "package_name": "com.example.umnstory"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBpC8h-SPn81-vDDi3lxdtNOEAjbsc5EOw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:58720087310:android:0c172c5d2967448d09fb5f",
+        "android_client_info": {
+          "package_name": "com.example.umnstoryfarel"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBpC8h-SPn81-vDDi3lxdtNOEAjbsc5EOw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:58720087310:android:14dec35d72c800eb09fb5f",
+        "android_client_info": {
+          "package_name": "com.example.utsmaplec"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBpC8h-SPn81-vDDi3lxdtNOEAjbsc5EOw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
