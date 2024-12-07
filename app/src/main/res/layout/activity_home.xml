@@ -111,7 +111,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
-        android:background="?android:attr/windowBackground"
+        android:background="@color/pastel_purple"
         android:elevation="15dp"
         app:itemIconSize="30dp"
         app:menu="@menu/bottom_nav_menu"

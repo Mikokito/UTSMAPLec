@@ -23,21 +23,21 @@
         <activity
             android:name=".ProfileActivity"
             android:exported="false" />
-        <activity
-            android:name=".HomeActivity"
-            android:exported="false" />
+<!--        <activity-->
+<!--            android:name=".HomeActivity"-->
+<!--            android:exported="false" />-->
         <activity
             android:name=".CalendarActivity"
             android:exported="false" />
 
         <!-- Demo -->
-<!--        <activity android:name=".HomeActivity"-->
-<!--            android:exported="true" >-->
-<!--            <intent-filter>-->
-<!--                <action android:name="android.intent.action.MAIN" />-->
-<!--                <category android:name="android.intent.category.LAUNCHER" />-->
-<!--            </intent-filter>-->
-<!--        </activity>-->
+        <activity android:name=".HomeActivity"
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
 
         <!-- Splash Screen -->
         <activity android:name=".SplashActivity"
@@ -49,9 +49,9 @@
         </activity>
 
         <!-- Activity selanjutnya -->
-        <activity android:name=".StartActivity" />
-        <activity android:name=".RegisterActivity" />
-        <activity android:name=".LoginActivity" />
+<!--        <activity android:name=".StartActivity" />-->
+<!--        <activity android:name=".RegisterActivity" />-->
+<!--        <activity android:name=".LoginActivity" />-->
         <provider
             android:name="androidx.core.content.FileProvider"
             android:authorities="${applicationId}.fileprovider"
