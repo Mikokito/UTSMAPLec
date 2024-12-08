@@ -62,19 +62,20 @@ class ProfileActivity : AppCompatActivity() {
             performLogout()
         }
 
-        // Handle Change Account Name Click
+        // Handle Change Account Name Click (Fitur Ganti Nama)
         val changeAccountNameLayout = findViewById<LinearLayout>(R.id.change_account_name_layout)
         changeAccountNameLayout.setOnClickListener {
             showChangeAccountNameDialog()
         }
 
-        // Handle Change Account Image Click
+        // Handle Change Account Image Click (Fitur Ganti Foto Profil)
         val changeAccountImageLayout = findViewById<LinearLayout>(R.id.change_account_image_layout)
         changeAccountImageLayout.setOnClickListener {
             showChangeAccountImageDialog()
         }
     }
 
+    // ini buat cek udh dapet permission blom
     private fun checkCameraPermission() {
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA)
             != PackageManager.PERMISSION_GRANTED) {
@@ -88,7 +89,7 @@ class ProfileActivity : AppCompatActivity() {
         }
     }
 
-
+    // ini bisa, request akses kamera
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
         if (requestCode == REQUEST_CAMERA_PERMISSION) {
@@ -100,6 +101,7 @@ class ProfileActivity : AppCompatActivity() {
         }
     }
 
+    // Fitur pop up Logout
     private fun performLogout() {
         // Tampilkan pop-up konfirmasi log out
         val dialogView = LayoutInflater.from(this).inflate(R.layout.dialog_logout_confirmation, null)
@@ -136,6 +138,7 @@ class ProfileActivity : AppCompatActivity() {
         dialog.show()
     }
 
+    // Fitur pop up ganti nama
     private fun showChangeAccountNameDialog() {
         // Inflate custom dialog layout
         val dialogView = LayoutInflater.from(this).inflate(R.layout.dialog_change_account_name, null)
@@ -176,6 +179,7 @@ class ProfileActivity : AppCompatActivity() {
         dialog.show()
     }
 
+    // Fitur pop up ganti foto
     private fun showChangeAccountImageDialog() {
         val dialogView = LayoutInflater.from(this).inflate(R.layout.dialog_change_account_image, null)
         val takePicture = dialogView.findViewById<TextView>(R.id.dialog_take_picture)
@@ -185,11 +189,13 @@ class ProfileActivity : AppCompatActivity() {
             .setView(dialogView)
             .create()
 
+        // pilih kamera
         takePicture.setOnClickListener {
             checkCameraPermission() // Periksa izin kamera sebelum membuka kamera
             dialog.dismiss()
         }
 
+        // pilih galeri
         chooseFromGallery.setOnClickListener {
             openGallery()
             dialog.dismiss()
@@ -198,6 +204,7 @@ class ProfileActivity : AppCompatActivity() {
         dialog.show()
     }
 
+    // nah ini g bisa, force closed, g bisa buka kamera
     private fun openCamera() {
         val cameraIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
         val photoURI = createImageFile()?.let {
@@ -210,6 +217,7 @@ class ProfileActivity : AppCompatActivity() {
         }
     }
 
+    // ini buat bikin img file ?
     private fun createImageFile(): File? {
         val storageDir = getExternalFilesDir(Environment.DIRECTORY_PICTURES)
         return try {
@@ -220,12 +228,13 @@ class ProfileActivity : AppCompatActivity() {
         }
     }
 
-
+    // ini bisa, Fitur ambil foto dari galery
     private fun openGallery() {
         val galleryIntent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
         startActivityForResult(galleryIntent, REQUEST_IMAGE_PICK)
     }
 
+    // ini semua ke bawah, buat fitur yg pake kamera, tapi g bisa semua
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (resultCode == RESULT_OK) {

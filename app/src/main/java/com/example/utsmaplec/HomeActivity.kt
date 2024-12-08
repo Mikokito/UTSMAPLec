@@ -4,8 +4,11 @@ import android.app.AlertDialog
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.View
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageView
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -29,6 +32,13 @@ class HomeActivity : AppCompatActivity() {
         taskAdapter = TaskAdapter(taskList)
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.adapter = taskAdapter
+
+        // Update visibilitas berdasarkan data
+        updateVisibility()
+
+        // Contoh menambahkan data
+        taskAdapter.updateTasks(taskList) // Ganti dengan data Anda
+        updateVisibility()
 
         // Setup Bottom Navigation
         bottomNavigationView.setOnNavigationItemSelectedListener { item ->
@@ -62,6 +72,29 @@ class HomeActivity : AppCompatActivity() {
         bottomNavigationView.selectedItemId = R.id.nav_home
     }
 
+    // Fitur kalau task kosong recycler ilang
+    private fun updateVisibility() {
+        val emptyImage: View = findViewById(R.id.empty_image)
+        val emptyTitle: View = findViewById(R.id.empty_title)
+        val emptySubtitle: View = findViewById(R.id.empty_subtitle)
+        val recyclerView: RecyclerView = findViewById(R.id.recycler_view_tasks)
+
+        if (taskAdapter.itemCount > 0) {
+            // Jika ada data, tampilkan RecyclerView
+            recyclerView.visibility = View.VISIBLE
+            emptyImage.visibility = View.GONE
+            emptyTitle.visibility = View.GONE
+            emptySubtitle.visibility = View.GONE
+        } else {
+            // Jika tidak ada data, tampilkan gambar dan teks
+            recyclerView.visibility = View.GONE
+            emptyImage.visibility = View.VISIBLE
+            emptyTitle.visibility = View.VISIBLE
+            emptySubtitle.visibility = View.VISIBLE
+        }
+    }
+
+    //Fitur Add task
     private fun showAddTaskDialog() {
         // Inflate layout dialog_add_task
         val dialogView = LayoutInflater.from(this).inflate(R.layout.dialog_add_task, null)

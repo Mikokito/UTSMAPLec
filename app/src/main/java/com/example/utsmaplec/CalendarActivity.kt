@@ -23,6 +23,7 @@ class CalendarActivity : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_calendar)
 
+        // Fitur Caledar (biar bisa di pencet)
         // initializing variables of
         // list view with their ids.
         dateTV = findViewById(R.id.idTVDate)

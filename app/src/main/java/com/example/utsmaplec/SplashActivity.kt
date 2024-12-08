@@ -6,6 +6,7 @@ import android.os.Handler
 import androidx.appcompat.app.AppCompatActivity
 import com.example.utsmaplec.StartActivity
 
+// ini buat nampilih splash screen doang pas masuk apknya
 class SplashActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

@@ -7,6 +7,7 @@
     android:orientation="vertical"
     android:padding="24dp">
 
+    <!--  Title  -->
     <TextView
         android:id="@+id/dialog_title"
         android:layout_width="match_parent"
@@ -18,11 +19,13 @@
         android:gravity="center"
         android:paddingBottom="8dp" />
 
+    <!--  Line  -->
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="@android:color/darker_gray" />
 
+    <!--  Input Nama Baru  -->
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -41,6 +44,7 @@
             android:background="@android:color/transparent" />
     </androidx.cardview.widget.CardView>
 
+    <!--  Tombol Cancel dan Edit  -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

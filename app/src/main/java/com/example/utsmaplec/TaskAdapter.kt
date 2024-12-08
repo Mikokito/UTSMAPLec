@@ -7,8 +7,9 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.utsmaplec.model.Task
 
-class TaskAdapter(private val taskList: List<Task>) : RecyclerView.Adapter<TaskAdapter.TaskViewHolder>() {
 
+// ini buat handling task, i don't understand tho
+class TaskAdapter(private val taskList: MutableList<Task>) : RecyclerView.Adapter<TaskAdapter.TaskViewHolder>() {
     inner class TaskViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val taskTitle: TextView = itemView.findViewById(R.id.task_title)
         val taskDescription: TextView = itemView.findViewById(R.id.task_description)
@@ -26,4 +27,11 @@ class TaskAdapter(private val taskList: List<Task>) : RecyclerView.Adapter<TaskA
     }
 
     override fun getItemCount(): Int = taskList.size
+
+    // Tambahkan fungsi untuk memperbarui data
+    fun updateTasks(newTasks: List<Task>) {
+        taskList.clear()
+        taskList.addAll(newTasks)
+        notifyDataSetChanged()
+    }
 }
