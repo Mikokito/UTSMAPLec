@@ -81,13 +81,13 @@ class HomeActivity : AppCompatActivity() {
 
         if (taskAdapter.itemCount > 0) {
             // Jika ada data, tampilkan RecyclerView
-            recyclerView.visibility = View.VISIBLE
+//            recyclerView.visibility = View.VISIBLE
             emptyImage.visibility = View.GONE
             emptyTitle.visibility = View.GONE
             emptySubtitle.visibility = View.GONE
         } else {
             // Jika tidak ada data, tampilkan gambar dan teks
-            recyclerView.visibility = View.GONE
+//            recyclerView.visibility = View.GONE
             emptyImage.visibility = View.VISIBLE
             emptyTitle.visibility = View.VISIBLE
             emptySubtitle.visibility = View.VISIBLE
