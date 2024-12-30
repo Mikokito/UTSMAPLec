@@ -52,6 +52,11 @@
         <activity android:name=".StartActivity" />
         <activity android:name=".RegisterActivity" />
         <activity android:name=".LoginActivity" />
+
+        <!-- Test -->
+        <activity android:name=".HistoryActivity"></activity>
+        <activity android:name=".TaskActivity" />
+
         <provider
             android:name="androidx.core.content.FileProvider"
             android:authorities="${applicationId}.fileprovider"
